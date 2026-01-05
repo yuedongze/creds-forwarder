@@ -15,7 +15,8 @@ Combined with the plain old SSH agent forwarding, only your laptop stays logged 
 [default]
 credential_process = curl --silent --unix-socket /tmp/auth.sock http://./token
 ```
-5. Profit! Actually, SSH doesn't clean up the forwarded used socket. So adding this hook to the end of your shell rc (.bashrc/.zshrc/etc) script helps: `function onexit { rm -f /tmp/auth.sock; }; trap onexit EXIT`.
+5. Profit! Try running AWS commands on remote like `aws sts get-caller-identity`.
+6. Actually, SSH doesn't clean up the forwarded used socket. So adding this hook to the end of your shell rc (.bashrc/.zshrc/etc) script helps: `function onexit { rm -f /tmp/auth.sock; }; trap onexit EXIT`.
 
 ## Usage (GCP)
 
